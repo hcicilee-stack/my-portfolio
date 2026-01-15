@@ -33,14 +33,6 @@
         
         .editorial-title { font-size: clamp(3rem, 10vw, 7.5rem); line-height: 0.82; letter-spacing: -0.05em; }
 
-        .stamp-badge {
-            width: 90px; height: 90px; background: var(--accent-red); color: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; text-align: center;
-            font-family: 'JetBrains Mono', monospace; font-size: 8px; text-transform: uppercase; font-weight: bold;
-            box-shadow: 0 15px 35px rgba(158, 42, 42, 0.25); animation: rotate 30s linear infinite;
-        }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
         .reveal-up { animation: revealUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
         @keyframes revealUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
