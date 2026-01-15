@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Curated Works</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;700&family=Tenor+Sans&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f6f2; 
+            --text-primary: #1a1a19;
+            --accent-red: #9e2a2a;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .font-heading { font-family: 'Tenor Sans', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .noise-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 9999; opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        .editorial-title { font-size: clamp(3rem, 10vw, 7.5rem); line-height: 0.82; letter-spacing: -0.05em; }
+
+        .stamp-badge {
+            width: 90px; height: 90px; background: var(--accent-red); color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            font-family: 'JetBrains Mono', monospace; font-size: 8px; text-transform: uppercase; font-weight: bold;
+            box-shadow: 0 15px 35px rgba(158, 42, 42, 0.25); animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .reveal-up { animation: revealUp 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
+        @keyframes revealUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+        .card-tilted-left { transform: rotate(-4deg) translateY(15px); z-index: 10; }
+        .card-straight { transform: rotate(0deg) scale(1.05); z-index: 20; }
+        .card-tilted-right { transform: rotate(4deg) translateY(15px); z-index: 10; }
+
+        .card-hover:hover {
+            transform: rotate(0deg) scale(1.08) translateY(-8px) !important;
+            z-index: 50 !important;
+            box-shadow: 0 45px 90px rgba(0,0,0,0.12);
+        }
+
+        .architectural-divider { width: 100%; height: 24px; position: relative; display: flex; align-items: center; }
+        .line-main { width: 100%; height: 1px; background-color: #1a1a19; opacity: 0.08; }
+        .line-accent-red-thick { position: absolute; height: 3px; background-color: var(--accent-red); border-radius: 2px; }
+
+        .aspect-cover { aspect-ratio: 3 / 4; }
+        .line-hover-effect { position: relative; }
+        .line-hover-effect::after {
+            content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px;
+            background: var(--accent-red); transition: width 0.5s ease;
+        }
+        .line-hover-effect:hover::after { width: 100%; }
+        ::selection { background: var(--accent-red); color: white; }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+    "react-easy-crop": "https://esm.sh/react-easy-crop@^5.2.0",
+    "@dnd-kit/core": "https://esm.sh/@dnd-kit/core@^6.3.1",
+    "@dnd-kit/sortable": "https://esm.sh/@dnd-kit/sortable@^10.0.0",
+    "@dnd-kit/utilities": "https://esm.sh/@dnd-kit/utilities@^3.2.2",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+</body>
+</html>
