@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { PortfolioData, Profile, Project } from './types';
@@ -13,7 +12,6 @@ const App: React.FC = () => {
     if (!saved) return INITIAL_DATA;
     try {
       const parsed = JSON.parse(saved);
-      // 深度检查数据结构是否完整
       if (parsed && parsed.profile && Array.isArray(parsed.projects)) {
         return parsed;
       }
